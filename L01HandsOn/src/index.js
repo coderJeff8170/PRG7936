@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = React.createElement('h1', {id: 'title'}, 'These are a few of Jeff\'s favourite things');
+const title = React.createElement('h1', {id: 'title'}, 'These are a few of Jeff\'s favorite things');
 //colors:
 
 const colorList = React.createElement('ol', {className: 'faveColors'},
