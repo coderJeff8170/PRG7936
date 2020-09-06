@@ -10,10 +10,9 @@ let data = [
     ];
 
 // *finds out what a pain in the butt global styling can be in react* jsObject styling:
-// guess I could import the css file to the html file, but what fun would that be??
 const tableStyle = {
     fontFamily: 'helvetica, arial, sansSerif',
-    width: '35%',
+    width: '500px',
     textAlign: 'center',
     borderSpacing: '0'
 }
