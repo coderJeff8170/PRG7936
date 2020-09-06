@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // sorry Shaun, I got carried away...
+// simulate fetched data
 let data = [
     {state: 'Idaho', pop: null, capital: 'Boise'},
     {state: 'Tennessee', pop: 6.651, capital: 'Nashville'},
@@ -9,7 +10,7 @@ let data = [
     {state: 'Wisconsin', pop: 5.779, capital: 'Madison'},
     ];
 
-// *finds out what a pain in the butt global styling can be in react* jsObject styling:
+// jsObject styling (after finding what a pain global element styling without a library in React can be):
 const tableStyle = {
     fontFamily: 'helvetica, arial, sansSerif',
     width: '500px',
