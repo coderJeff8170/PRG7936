@@ -9,43 +9,62 @@ let data = [
     {state: 'Wisconsin', pop: 5.779, capital: 'Madison'},
     ];
 
+// *finds out what a pain in the butt global styling can be in react* jsObject styling:
+// guess I could import the css file to the html file, but what fun would that be??
+const tableStyle = {
+    fontFamily: 'helvetica, arial, sansSerif',
+    width: '35%',
+    textAlign: 'center',
+    borderSpacing: '0'
+}
 
+const cellStyle = {
+    border: '1px solid black',
+    padding: '5px 10px'
+}
+
+// create column heads
 const tableHead = () => {
     return(
         <thead>
             <tr style={{fontWeight: 'bold'}}>
-                <td>State</td>
-                <td>Population</td>
-                <td>Capital</td>
+                <th style = {cellStyle}>State</th>
+                <th style = {cellStyle}>Population</th>
+                <th style = {cellStyle}>Capital</th>
             </tr>
         </thead>
-
     )
+};
 
-}
-const stateInfo = (state, pop, capital, i) => {
+// dynamically create rows
+const tableRow = (state, pop, capital, i) => {
     return(
-        //<style>{"table{border:1px solid black;}"}</style> -> figure this out
-        //put the thead in here, and then the map function?
         <tr 
             key={i}
             style={i%2==0?{background: '#ddd'}:{background: 'white'}}
-            // style={{background: '#ddd'}}
         >
-            <td>{state}</td>
-            <td>{pop>0?`${pop} million`:''}</td>
-            <td>{capital}</td>
+            <td style = {cellStyle}>{state}</td>
+            <td style = {cellStyle}>{pop>0?`${pop} million`:''}</td>
+            <td style = {cellStyle}>{capital}</td>
         </tr>
     )
 };
 
+// fulfill stateInfo functional component requirement
+// which creates entire table
+const stateInfo = (info) => {
+    return(
+        <table style={tableStyle}>
+            {tableHead()}
+            <tbody>
+                {info.map((el, i)=>(tableRow(el.state, el.pop, el.capital, i)))}
+            </tbody>
+        </table>
+    )
+};
+
+// render to DOM
 ReactDOM.render(
-    <table>
-        {tableHead()}
-        <tbody>
-        {data.map((el, i)=>(stateInfo(el.state, el.pop, el.capital, i)))}
-        </tbody>
-        
-    </table>,
+    stateInfo(data),
     document.getElementById('root')
 );
