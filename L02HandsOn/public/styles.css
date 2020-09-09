@@ -1,0 +1,17 @@
+h1 {
+    background: red;
+    color: blue;
+}
+
+table {
+    font-family: helvetica, arial, sansSerif;
+    width: 500px;
+    text-align: center;
+    border-spacing: 0;
+    /* border: 1px solid red; */
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
