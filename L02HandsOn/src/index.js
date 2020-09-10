@@ -27,7 +27,7 @@ let data = [
 const tableHead = () => {
     return(
         <thead>
-            <tr style={{fontWeight: 'bold'}}>
+            <tr>
                 <th>State</th>
                 <th>Population</th>
                 <th>Capital</th>
