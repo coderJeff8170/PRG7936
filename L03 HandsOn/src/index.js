@@ -25,7 +25,13 @@ List.propTypes = {
 
 // App component to return const favoriteCars... through a list component
 const App = props => {
-    const favoriteCars = ['Honda CR-V ', 'Toyota Highlander', 'Ford F-150', 'BMW X3', 'Subaru Crosstrek'];
+    const favoriteCars = [
+        'Honda CR-V ',
+        'Toyota Highlander',
+        'Ford F-150',
+        'BMW X3',
+        'Subaru Crosstrek'
+    ];
     return (
     <List cars={favoriteCars} />
     );
