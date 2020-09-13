@@ -69,5 +69,39 @@
 //     );
 // }
 
+/* ------------Part 3 ----------*/
+
+
+// // make a stateful component called Text that returns an input
+// //that alters the state of the component on change and renders the change
+// //in a JSX h1 output dependent on the value of the state's 'text' property.
+// class Text extends React.Component {
+//     constructor(){
+//         super();
+
+//         this.state={
+//             text: 'Jeff is Superb!'
+//         }
+//     }
+
+//     update(event){
+//         this.setState({
+//             text: event.target.value
+//         });
+//     }
+
+//     render(){
+//         return (
+//             <div>
+//                 <input type="text" onChange={this.update.bind(this)}></input>
+//         <h1>{this.state.text}</h1>
+//             </div>
+//         );
+//     }
+// }
+
+/* ------------Part 4 ----------*/
+
+
 
 // ReactDOM.render(<App />, document.getElementById('root'));

@@ -2,32 +2,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
+//1. create a stateful component named BankAccount, whereby a button increments the balance
+//which is dependent on the state's 'balance' property
 
-// make a stateful component called Text that returns an input that alters the state of the component on change and renders the change
-class Text extends React.Component {
-    constructor(){
-        super();
+//2. now provide an input whereby the button increments the account balance by the specific
+// value entered by the user...
 
-        this.state={
-            text: 'Jeff is Superb!'
+class BankAccount extends React.Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            accountBalance: 2222.22
         }
     }
 
-    update(event){
+    increment(){
         this.setState({
-            text: event.target.value
-        });
+            accountBalance: this.state.accountBalance + 1
+        })
     }
 
     render(){
-        return (
+        return(
             <div>
-                <input type="text" onChange={this.update.bind(this)}></input>
-        <h1>{this.state.text}</h1>
+                <h3>Account Balance: ${this.state.accountBalance}</h3>
+                <button onClick={this.increment.bind(this)}>Make me rich!</button>
             </div>
         );
     }
 }
 
 
-ReactDOM.render(<Text />, document.getElementById('root'));
+
+
+ReactDOM.render(<BankAccount />, document.getElementById('root'));
