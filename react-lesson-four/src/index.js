@@ -13,20 +13,27 @@ class BankAccount extends React.Component {
         super(props);
 
         this.state = {
-            accountBalance: 2222.22
+            accountBalance: 2222.22,
+            incrementAmount: 0
         }
     }
-
+    // got to figure out how to limit the added amount to no more than 2 decl places
     increment(){
+        
         this.setState({
-            accountBalance: this.state.accountBalance + 1
-        })
+            accountBalance: (this.state.accountBalance + this.state.incrementAmount)
+        });
     }
 
     render(){
         return(
             <div>
                 <h3>Account Balance: ${this.state.accountBalance}</h3>
+                <input type="number"
+                step="0.01"
+                onChange={event=>this.setState({incrementAmount: parseFloat(event.target.value)})}
+                value={this.state.incrementAmount}
+                />
                 <button onClick={this.increment.bind(this)}>Make me rich!</button>
             </div>
         );
