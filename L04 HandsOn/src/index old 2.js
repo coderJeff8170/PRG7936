@@ -37,33 +37,55 @@ class NumberOfStudents extends React.Component {
 
         this.state = {
             enrolledStudents: 0,
-            enrolledStudentsToAdd: 0,
+            studentsToEnroll: 0,
             waitListedStudents: 0,
-            waitListedStudentsToAdd: 0
+            studentsToWait: 0
         };
     }
 
-    //increment refactor:
-    onIncrement(studentType){
+    /*------------ methods for Enrolled Students -------------*/
+
+    //increment
+    onIncrementEnrolled(){
         this.setState({
-            [studentType]: this.state[studentType] + 1
+            enrolledStudents: this.state.enrolledStudents + 1
         });
     }
 
-    //student Amount refactor
-    onChangeStudentAmt(e, studentType){
-        const studentTypeToAdd = `${studentType}ToAdd`
+    //handle change in Enrolled Students to add
+    onChangeEnrolledAmt(e) {
         this.setState({
-            [studentTypeToAdd]: e.target.value
-        })
+            studentsToEnroll: e.target.value
+        });
     }
 
-    //Update refactor
-    onUpdateStudentAmt(studentType){
-        const studentTypeToAdd = `${studentType}ToAdd`
+    //update Enrolled Students
+    onUpdateEnrolledAmt(){
         this.setState({
-            [studentType]: this.state[studentType] + parseInt(this.state[studentTypeToAdd])
-        })
+            enrolledStudents: this.state.enrolledStudents + parseInt(this.state.studentsToEnroll)
+        });
+    }
+
+    /*------------ methods for WaitListed Students -------------*/
+
+    //increment
+    onIncrementWaitListed(){
+        this.setState({
+            waitListedStudents: this.state.waitListedStudents + 1
+        });
+    }
+    //handle change in WaitListed Students to add
+    onChangeWaitListedAmt(e) {
+        this.setState({
+            studentsToWait: e.target.value
+        });
+    }
+
+    //update WaitListed Students
+    onUpdateWaitListedAmt(){
+        this.setState({
+            waitListedStudents: this.state.waitListedStudents + parseInt(this.state.studentsToWait)
+        });
     }
 
     //use a reusable stateless component for each kind of student?
@@ -73,24 +95,23 @@ class NumberOfStudents extends React.Component {
                 <StudentIncrementInterface 
                     studentType="Enrolled"
                     studentCount={this.state.enrolledStudents}
-                    plusOne={()=>{this.onIncrement("enrolledStudents")}}
+                    plusOne={this.onIncrementEnrolled.bind(this)}
                     studentAmt={this.state.studentsToEnroll}
-                    changeStudentAmt={(e)=>{this.onChangeStudentAmt(e, "enrolledStudents")}}
-                    updateStudentAmt={()=>{this.onUpdateStudentAmt("enrolledStudents")}}
+                    changeStudentAmt={this.onChangeEnrolledAmt.bind(this)}
+                    updateStudentAmt={this.onUpdateEnrolledAmt.bind(this)}
                 />
                 <StudentIncrementInterface 
                     studentType="WaitListed"
                     studentCount={this.state.waitListedStudents}
-                    plusOne={()=>{this.onIncrement("waitListedStudents")}}
+                    plusOne={this.onIncrementWaitListed.bind(this)}
                     studentAmt={this.state.studentsToWait}
-                    changeStudentAmt={(e)=>{this.onChangeStudentAmt(e, "waitListedStudents")}}
-                    updateStudentAmt={()=>{this.onUpdateStudentAmt("waitListedStudents")}}
+                    changeStudentAmt={this.onChangeWaitListedAmt.bind(this)}
+                    updateStudentAmt={this.onUpdateWaitListedAmt.bind(this)}
                 />
             </div>
         )
     }
 }
-
 // App renders App!
 const App = props => {
     return (
