@@ -66,7 +66,7 @@ class NumberOfStudents extends React.Component {
         })
     }
 
-    //use a reusable stateless component for each kind of student?
+    //use a reusable stateless component for each kind of student
     render(){
         return(
             <div>
@@ -91,7 +91,7 @@ class NumberOfStudents extends React.Component {
     }
 }
 
-// App renders App!
+// App renders 'NumberOfStudents' Component
 const App = props => {
     return (
     <NumberOfStudents />
