@@ -1,19 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+// import Header from './components/Header'
+import Home from './screens/Home';
+import About from './screens/About';
+import Topics from './screens/Topics';
 
-const App = props => {
-    return (
-    <h1>I'm {props.dogname}, a poop goat!</h1>
-    )
-}
 
-App.propTypes = {
-    dogname: PropTypes.string.isRequired
-}
+// const Index = ({pathname}) => {
+//     return(
+//         <div>
+//         <Header />
+//     </div>
+//     );
 
-App.defaultProps = {
-    dogname: 'Nilla'
-}
+// };
 
-ReactDOM.render(<App dogname="Marley"/>, document.getElementById('root'));
+const Index = ({pathname}) => {
+
+    switch(pathname) {
+        case '/about':
+            return <About />;
+        case '/topics':
+            return <Topics />;
+        default:
+            return <Home />;
+    }
+};
+
+
+let pathname = window.location.pathname;
+
+ReactDOM.render(<Index pathname={pathname}/>, document.getElementById('root'));
+
+window.addEventListener('popstate', () => {pathname = window.location.pathname});
