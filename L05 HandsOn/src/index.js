@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import Home from './screens/Home';
+import About from './screens/About';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
-const App = props => {
-    return (
-    <h1>I'm {props.dogname}, a poop goat!</h1>
-    )
-}
 
-App.propTypes = {
-    dogname: PropTypes.string.isRequired
-}
+const App = () => (
+    <Router>
+        <div>
+            <h1>I'm alive</h1>
+            <Home />
+        </div>
+    </Router>
+);
 
-App.defaultProps = {
-    dogname: 'Nilla'
-}
 
-ReactDOM.render(<App dogname="Marley"/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
