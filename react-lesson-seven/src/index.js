@@ -4,7 +4,13 @@ import Counter from './Counter';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-const store = createStore();
+function reducer() {
+  return {
+    count: 6
+  };
+}
+
+const store = createStore(reducer);
 
 const App = () => (
   <Provider store={store}>
