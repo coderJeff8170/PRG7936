@@ -5,11 +5,21 @@ class Counter extends React.Component {
 
 
   increment = () => {
-    //fill in later
+   this.props.dispatch({
+     type: 'INCREMENT'
+   });
   }
 
   decrement = () => {
-    //fill in later
+    this.props.dispatch({
+      type: 'DECREMENT'
+    });
+  }
+
+  reset = () => {
+    this.props.dispatch({
+      type: 'RESET'
+    });
   }
 
   render() {
@@ -20,6 +30,8 @@ class Counter extends React.Component {
           <button onClick={this.decrement}>-</button>
           <span>{this.props.count}</span>
           <button onClick={this.increment}>+</button>
+          <br />
+          <button onClick={this.reset}>Reset</button>
         </div>
       </div>
     );
@@ -27,9 +39,9 @@ class Counter extends React.Component {
 }
 
 // TODO: mapStateToProps function
-function mapStateToProps(state){
-  return { count: state.count};
-}
+const mapStateToProps = state => {
+  return { count: state.count };
+};
 
 //TODO: refactor export
 //export default Counter;
