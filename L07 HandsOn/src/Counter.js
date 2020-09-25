@@ -34,14 +34,19 @@ class Counter extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Counter</h2>
-        <div style={{width: '150px'}}>
-          <span>{this.props.count}</span>
-          <button onClick={this.increment}>Increase By 1</button>
-          <button onClick={this.incrementFive}>Increase By 5</button>
-          <button onClick={this.decrement}>Decrease By 1</button>
-          <button onClick={this.decrementTen}>Decrease By 10</button>
+      <div className="text-center">
+        <h2 >Counter</h2>
+        <div>
+          <div className="col">
+            <button onClick={this.increment}>Increase By 1</button>
+            <button onClick={this.incrementFive}>Increase By 5</button>
+          </div>
+          <h1>{this.props.count}</h1>
+          <div>
+            <button onClick={this.decrement}>Decrease By 1</button>
+            <button onClick={this.decrementTen}>Decrease By 10</button>
+          </div>
+
           <br />
           <button onClick={this.reset}>Reset</button>
         </div>
