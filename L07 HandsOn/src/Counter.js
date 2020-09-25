@@ -32,19 +32,27 @@ class Counter extends React.Component {
     });
   };
 
+  // renderDigits(value){
+  //   //return (value.toString().split("").join("+"));
+  // (value.toString().split("")).map(el=>(<div>{el}</div>));
+  // }
+
   render() {
+    const value = this.props.count;
+    const digits = value.toString().split('').map((el, i)=>(<div key={i} style={{'display': 'inline'}}>{el}</div>))
+
     return (
       <div className="text-center">
         <h2 >Counter</h2>
         <div>
           <div className="col">
-            <button onClick={this.increment}>Increase By 1</button>
-            <button onClick={this.incrementFive}>Increase By 5</button>
+            <button onClick={this.increment}>+ 1</button>
+            <button onClick={this.incrementFive}>+ 5</button>
           </div>
-          <h1>{this.props.count}</h1>
+          <h1 >{digits}</h1>
           <div>
-            <button onClick={this.decrement}>Decrease By 1</button>
-            <button onClick={this.decrementTen}>Decrease By 10</button>
+            <button onClick={this.decrement}>- 1</button>
+            <button onClick={this.decrementTen}>- 10</button>
           </div>
 
           <br />
