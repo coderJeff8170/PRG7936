@@ -2,7 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Counter extends React.Component {
+
+  play = () => {
+    this.player.currentTime = 0;
+    this.player.volume = .2
+    this.player.play();
+  }
+
+
   increment = () => {
+  
     this.props.dispatch({
       type: 'Increment'
     });
@@ -31,6 +40,10 @@ class Counter extends React.Component {
       type: 'Reset'
     });
   };
+
+  componentDidUpdate(){
+    this.play();
+  }
 
   render() {
     //limit counter to 999/-999
@@ -70,10 +83,13 @@ class Counter extends React.Component {
         <h2>Jeff's Flip Number Counter</h2>
         <div>
           <div className="col">
-            <button onClick={this.increment}>+ 1</button>
+            <button onClick={this.increment}>+ 1
+
+            </button>
             <button onClick={this.incrementFive}>+ 5</button>
           </div>
           <h1 className="readout text-center">{digits}</h1>
+          <audio ref={ref => this.player = ref} src="https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav"></audio>
           <div>
             <button onClick={this.decrement}>- 1</button>
             <button onClick={this.decrementTen}>- 10</button>
