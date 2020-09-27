@@ -32,24 +32,42 @@ class Counter extends React.Component {
     });
   };
 
-  // renderDigits(value){
-  //   //return (value.toString().split("").join("+"));
-  // (value.toString().split("")).map(el=>(<div>{el}</div>));
-  // }
-
   render() {
-    const value = this.props.count;
-    const digits = value.toString().split('').map((el, i)=>(<div key={i} style={{'display': 'inline'}}>{el}</div>))
+    //limit counter to 999/-999
+    const value = this.props.count <= 999 && this.props.count >= (-999) ? this.props.count
+      : this.props.count < (-999) ? (-999)
+        : 999;
+
+    //isolate digits for display
+    const digits = value.toString().split('').map((el, i) => (<div key={i} className="digit" >{el}</div>));
+
+    //add zeros for three digit readout
+    const makeZeros = (value) => {
+
+      const zero = <div className="digit" >0</div>;
+
+      if (value <= 9 && value >= 0) {
+        return (
+          (<span>{zero}{zero}</span>)
+        );
+      } else if ((value >= 10 && value <= 99)) {
+        return zero;
+      } else {
+        return;
+      }
+    }
+
+    const zeros = makeZeros(value);
 
     return (
       <div className="text-center">
-        <h2 >Counter</h2>
+        <h2>Jeff's Flip Number Counter</h2>
         <div>
           <div className="col">
             <button onClick={this.increment}>+ 1</button>
             <button onClick={this.incrementFive}>+ 5</button>
           </div>
-          <h1 >{digits}</h1>
+          <h1 className="readout text-center">{zeros}{digits}</h1>
           <div>
             <button onClick={this.decrement}>- 1</button>
             <button onClick={this.decrementTen}>- 10</button>
