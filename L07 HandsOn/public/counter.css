@@ -1,16 +1,37 @@
+#root {
+    background: black;
+    color: white;
+    height: 100vh;
+}
 
+.countButton, .resetButton {
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    border-radius: 10px;
+    background: #333;
+    margin: 5px;
+}
+
+.countButton {
+    width: 75px;
+}
+
+.resetButton {
+    width: 125px;
+}
 
 .digit {
     display: inline-block;
     position: relative;
-    background: #333;
+    background-image: linear-gradient(black, #333);
     width: 110px;
     margin: 7px 4px;
     border-radius: 0.8rem;
     color: white;
     font-size: 3em;
     font-weight: 700;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .digit::before {
@@ -25,8 +46,12 @@
 }
 
 .readout {
+    border-radius: 10px;
+    background-image: linear-gradient(rgb(248, 242, 206),rgb(119, 116, 97));
+    padding: 0 5px;
+}
 
+.readoutContainer {
+    border: 2px solid red;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }

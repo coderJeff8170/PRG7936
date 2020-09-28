@@ -2,18 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Counter extends React.Component {
-
+  //add a flip sound
   play = () => {
     this.player.currentTime = 0;
     this.player.volume = .2
     this.player.play();
   }
 
-
   increment = () => {
   
     this.props.dispatch({
-      type: 'Increment'
+      type: 'INCREMENT'
     });
   };
 
@@ -25,7 +24,7 @@ class Counter extends React.Component {
 
   decrement = () => {
     this.props.dispatch({
-      type: 'Decrement'
+      type: 'DECREMENT'
     });
   };
 
@@ -37,10 +36,11 @@ class Counter extends React.Component {
 
   reset = () => {
     this.props.dispatch({
-      type: 'Reset'
+      type: 'RESET'
     });
   };
 
+  //if component updates(numbers change), play flip sound
   componentDidUpdate(){
     this.play();
   }
@@ -66,11 +66,10 @@ class Counter extends React.Component {
           break;
       }
       if(value>=0){
-        //return result
+        //if possie value, return result
         return digArr;
       }else{
-        //readminister minus symbol
-        // return result
+        //if not, readminister minus symbol and return result
         digArr.unshift("-");
         return digArr;
       }
@@ -79,24 +78,25 @@ class Counter extends React.Component {
     const digits = handleDigits(value).map((el, i) => (<div key={i} className="digit" >{el}</div>));
 
     return (
-      <div className="text-center">
+      <div className="container text-center">
         <h2>Jeff's Flip Number Counter</h2>
         <div>
-          <div className="col">
-            <button onClick={this.increment}>+ 1
-
-            </button>
-            <button onClick={this.incrementFive}>+ 5</button>
-          </div>
-          <h1 className="readout text-center">{digits}</h1>
-          <audio ref={ref => this.player = ref} src="https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav"></audio>
           <div>
-            <button onClick={this.decrement}>- 1</button>
-            <button onClick={this.decrementTen}>- 10</button>
+            <button className="countButton" onClick={this.increment}>+ 1</button>
+            <button className="countButton" onClick={this.incrementFive}>+ 5</button>
+          </div>
+          <div className="d-flex justify-content-center">
+          <h1 className="readout">{digits}</h1>
+          <audio ref={ref => this.player = ref} src="https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav"></audio>
+          </div>
+          
+          <div>
+            <button className="countButton" onClick={this.decrement}>- 1</button>
+            <button className="countButton" onClick={this.decrementTen}>- 10</button>
           </div>
 
           <br />
-          <button onClick={this.reset}>Reset</button>
+          <button className="resetButton" onClick={this.reset}>Reset</button>
         </div>
       </div>
     );

@@ -23,7 +23,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'Increment':
+    case 'INCREMENT':
       return {
         count: state.count + 1
       };
@@ -31,7 +31,7 @@ function reducer(state = initialState, action) {
       return {
         count: state.count + 5
       };
-    case 'Decrement':
+    case 'DECREMENT':
       return {
         count: state.count - 1
       };
@@ -39,7 +39,7 @@ function reducer(state = initialState, action) {
       return {
         count: state.count - 10
       };
-    case 'Reset':
+    case 'RESET':
       return {
         count: (state.count = 0)
       };
