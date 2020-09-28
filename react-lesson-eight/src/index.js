@@ -13,9 +13,32 @@ class BankAccount extends React.Component {
         super(props);
 
         this.state = {
-            bankAccount: 2222.22,
+            accountBalance: 2222.22,
             addAmount: 0
         }
+    }
+
+    increment(){
+        this.setState({
+            accountBalance: this.state.accountBalance + parseInt(this.state.addAmount)
+        });
+    }
+
+    render(){
+        return(
+            <div>
+                <h3>Account Balance: ${this.state.accountBalance}</h3>
+                <input 
+                    type="number"
+                    onChange={event=>this.setState({addAmount: event.target.value})}
+                    value={this.state.addAmount}
+                >
+                </input>
+                <button onClick={this.increment.bind(this)}>
+                    Add Amount
+                </button>
+            </div>
+        );
     }
 
 }
