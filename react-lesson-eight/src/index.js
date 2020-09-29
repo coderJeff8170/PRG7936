@@ -17,14 +17,39 @@ class BankAccount extends React.Component {
             addAmount: 0
         }
     }
+    shouldComponentUpdate(nextProps, nextState){
+        if(this.state.addAmount !== nextState.addAmount){
+            return true;
+        }
+        if(this.state.accountBalance !== nextState.accountBalance){
+            return true;
+        }else{
+            return false;
+        }
 
+    }
+
+    componentWillMount(){
+        console.log('deprecated, but mounted!');
+    }
+
+    componentDidMount(){
+        console.log('component did mount!');
+    }
+
+    componentDidUpdate(){
+        console.log('component did update!');
+    }
+    //make this asynchronous!
+    // done, but don't quite understand, and what is the props for??
     increment(){
-        this.setState({
-            accountBalance: this.state.accountBalance + parseInt(this.state.addAmount)
-        });
+        this.setState((prevState, props) =>
+            ({ accountBalance: prevState.accountBalance + parseInt(prevState.addAmount) })
+        );
     }
 
     render(){
+        console.log('rendered!');
         return(
             <div>
                 <h3>Account Balance: ${this.state.accountBalance}</h3>
