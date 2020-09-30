@@ -10,7 +10,7 @@ class Counter extends React.Component {
   }
 
   increment = () => {
-  
+
     this.props.dispatch({
       type: 'INCREMENT'
     });
@@ -41,7 +41,7 @@ class Counter extends React.Component {
   };
 
   //if component updates(numbers change), play flip sound
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.play();
   }
 
@@ -55,20 +55,20 @@ class Counter extends React.Component {
       //make array from absolute value
       let digArr = Math.abs(value).toString().split('');
       //determine zeros
-      switch(digArr.length){
+      switch (digArr.length) {
         case 1:
           //add two zeros
-          digArr=["0", "0", ...digArr];
+          digArr = ["0", "0", ...digArr];
           break;
         case 2:
           //add one zero
           digArr.unshift("0");
           break;
       }
-      if(value>=0){
+      if (value >= 0) {
         //if possie value, return result
         return digArr;
-      }else{
+      } else {
         //if not, readminister minus symbol and return result
         digArr.unshift("-");
         return digArr;
@@ -86,10 +86,10 @@ class Counter extends React.Component {
             <button className="countButton" onClick={this.incrementFive}>+ 5</button>
           </div>
           <div className="d-flex justify-content-center">
-          <h1 className="readout">{digits}</h1>
-          <audio ref={ref => this.player = ref} src="https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav"></audio>
+            <h1 className="readout">{digits}</h1>
+            <audio ref={ref => this.player = ref} src="https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav"></audio>
           </div>
-          
+
           <div>
             <button className="countButton" onClick={this.decrement}>- 1</button>
             <button className="countButton" onClick={this.decrementTen}>- 10</button>
