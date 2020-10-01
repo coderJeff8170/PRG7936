@@ -1,19 +1,46 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import { render } from 'react-dom';
 
-const App = props => {
+class List extends React.Component {
+
+    shouldComponentUpdate(nextProps){
+        if(this.props.items !== nextProps.items){
+            return true;
+        }
+        return false;
+    }
+
+    render() {
+        console.log("List's render function"); // this should not be logged multiple times if the exact same props are provided a second time
+    const list = this.props.items.map(item => (<li key={item}>{item}</li>));
+
     return (
-    <h1>I'm {props.dogname}, a poop goat!</h1>
-    )
+        <ul>
+            {list}
+        </ul>
+    );
+    }
 }
 
-App.propTypes = {
-    dogname: PropTypes.string.isRequired
+const list1Items = ['Eggs', 'Bread', 'Artisan cheese'];
+const list2Items = ['Trains', 'Planes', 'Automobiles'];
+
+const renderItems = (items) => {
+    render(
+    <List items={items} />,
+    document.getElementById('root')
+    );
 }
 
-App.defaultProps = {
-    dogname: 'Nilla'
-}
+document.addEventListener('keydown', event => {
+    // this checks if the 1 key is pressed
+    if (event.code === 'Digit1') {
+        renderItems(list1Items);
+    }
+    // this checks if the 2 key is pressed
+    else if (event.code === 'Digit2') {
+        renderItems(list2Items);
+    }
+});
 
-ReactDOM.render(<App dogname="Marley"/>, document.getElementById('root'));
+renderItems(list1Items);
