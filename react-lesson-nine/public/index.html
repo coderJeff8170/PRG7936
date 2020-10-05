@@ -2,9 +2,18 @@
 <html>
     <head>
         <title></title>
+        <script>
+            const thingToDoWhenTimeoutComplete = () => alert('timeout comPLETE');
+            setTimeout(thingToDoWhenTimeoutComplete, 5000);
+        </script>
     </head>
     <body>
-        <div id="root"></div>
-        <script src="bundle.js"></script>
+        <!-- <div>
+            <button id="alertButton">Show Alert</button>
+        </div>
+        <script>
+            const thingToDoWhenClicked = (e) => alert(`I was clicked by ${e.srcElement.id}`);
+            document.getElementById('alertButton').onclick = thingToDoWhenClicked;
+        </script> -->
     </body>
 </html>
