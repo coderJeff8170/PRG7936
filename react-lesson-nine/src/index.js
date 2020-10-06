@@ -1,19 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import * as ReactRedux from 'react-redux';
+import * as Redux from 'redux';
 
-const App = props => {
+const { Provider } = ReactRedux;
+
+const reducer = (state='not started', action) => {
+    switch(action.type){
+        case 'STARTED':
+            return 'started';
+        case 'COMPLETED':
+            return 'completed';
+        default:
+            return state;
+    }
+}
+
+const store = Redux.createStore(reducer);
+
+let StatusDisplay = (props) => {
     return (
-    <h1>I'm {props.dogname}, a poop goat!</h1>
-    )
+        <div>
+            <p>{props.status}</p>
+            <button onClick={waitTwoSecsToDispatch}>Update Status</button>
+        </div>
+    );
 }
 
-App.propTypes = {
-    dogname: PropTypes.string.isRequired
+const waitTwoSecsToDispatch = () => {
+    store.dispatch({type: 'STARTED'});
+    setTimeout(() => store.dispatch({type: 'COMPLETED'}), 2000);
 }
 
-App.defaultProps = {
-    dogname: 'Nilla'
-}
 
-ReactDOM.render(<App dogname="Marley"/>, document.getElementById('root'));
+const mapStateToProps = state => ({status: state})
+
+StatusDisplay = ReactRedux.connect(mapStateToProps)(StatusDisplay);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <StatusDisplay />
+    </Provider>,
+    document.getElementById('root')
+    );
