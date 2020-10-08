@@ -27,7 +27,7 @@ const store = createStore(reducer);
 
 
 render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>,
      document.getElementById('root'));
