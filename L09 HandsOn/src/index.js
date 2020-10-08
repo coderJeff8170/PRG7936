@@ -15,8 +15,8 @@ API = 'https://jsonplaceholder.typicode.com/photos'
 Step 1
 Be sure to include the following:
 
-A component
-The state
+A component [X]
+The state [X]
 A componentDidMount() method
 Anything else that helps render the information on the page
 SAR - Store, Action, Reducer!

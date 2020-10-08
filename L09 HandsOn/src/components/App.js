@@ -1,8 +1,11 @@
 import React from 'react';
+import Pics from './Pics';
 
 const App = props => {
     return (
-    <h1>Working!</h1>
+    <div>
+        <Pics />
+    </div>
     );
 }
 
