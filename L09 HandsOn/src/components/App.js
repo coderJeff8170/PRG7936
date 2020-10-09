@@ -19,9 +19,15 @@ class App extends React.Component {
     }
 }
 
+// componentDidMount() {
+
+// }
+
+
+
 function mapDispatchToProps(dispatch){
     return {
-        onGetPics: () => getData.then(pics => dispatch(onReceiveData(pics)))
+        onGetPics: () => getData().then(pics => dispatch(onReceiveData(pics)))
     }
 }
 
