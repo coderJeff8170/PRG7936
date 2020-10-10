@@ -12,16 +12,16 @@ const Pics = ({photos, onGetPics}) => {
     //         {photos.map(pic => <li key={pic.id}><a href={pic.url} target="_blank"><img src={pic.thumbnailUrl}></img></a></li>)}
     //     </ul>
     // );
-    // let displayPics = (
-    //     <div>
-    //         {photos.map(pic => <a key={pic.id} href={pic.url} target="_blank"><img src={pic.thumbnailUrl} alt="should be a thumb"></img></a>)}
-    //     </div>
-    // );
-    const displayPics = (
+    let displayPics = (
         <div>
-            {photos.map(pic => <img key={pic.id} src={pic.url} alt="jfc!!" />)}
+            {photos.map(pic => <a key={pic.id} href={pic.url} target="_blank"><img src={pic.thumbnailUrl} alt="should be a thumb"></img></a>)}
         </div>
     );
+    // const displayPics = (
+    //     <div>
+    //         {photos.map(pic => <img key={pic.id} src={pic.url} alt="jfc!!" />)}
+    //     </div>
+    // );
 
     return (
         <div>

@@ -14,7 +14,7 @@ export const getData = () => {
                 id: pic.id,
                 title: pic.title,
                 url: pic.url,
-                thumbnail: pic.thumbnailUrl
+                thumbnailUrl: pic.thumbnailUrl
             }
         )));
 }
