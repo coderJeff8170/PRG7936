@@ -14,13 +14,13 @@ Step 2
 Make it clear on the page what each button is doing. It should look similar to the example below.[X]
 
 Step 3
-Style it!
+Style it! [X]
  */
 
 const initialState = {
   count: 0
 };
-
+/* ---------------- reducer begins here ------------------  */
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'INCREMENT':
@@ -47,6 +47,8 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+
+/* ---------------- reducer ends here ------------------  */
 
 const store = createStore(reducer);
 

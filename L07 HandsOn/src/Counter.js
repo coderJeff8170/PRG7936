@@ -8,7 +8,7 @@ class Counter extends React.Component {
     this.player.volume = .2
     this.player.play();
   }
-
+  /* ---------------- actions begin here ------------------  */
   increment = () => {
 
     this.props.dispatch({
@@ -39,6 +39,8 @@ class Counter extends React.Component {
       type: 'RESET'
     });
   };
+
+  /* ---------------- actions end here ------------------  */
 
   //if component updates(numbers change), play flip sound
   componentDidUpdate() {
