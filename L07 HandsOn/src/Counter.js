@@ -5,7 +5,7 @@ class Counter extends React.Component {
   //add a flip sound
   play = () => {
     this.player.currentTime = 0;
-    this.player.volume = .2
+    this.player.volume = .2;
     this.player.play();
   }
   /* ---------------- actions begin here ------------------  */
