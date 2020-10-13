@@ -2,21 +2,15 @@ import React from 'react';
 import Counter from './Counter';
 import { connect } from 'react-redux';
 import { increment, decrement, onUpdateCount, onChangeCount } from '../actions/index';
+import Updater from './Updater';
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <h3>Counter</h3>
-        <Counter 
-          count={this.props.count}
-          changeCount={this.props.changeCount}
-          numClicks={this.props.numClicks} 
-          onIncrement={this.props.onIncrement} 
-          onDecrement={this.props.onDecrement}
-          onUpdateCount={this.props.onUpdateCount}
-          onChangeCount={this.props.onChangeCount}
-        />
+        <Counter {...this.props} />
+        <Updater {...this.props} />
       </div>
     );
   }
