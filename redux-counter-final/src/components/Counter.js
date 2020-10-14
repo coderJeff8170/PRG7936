@@ -1,18 +1,18 @@
 import React from 'react';
 
-
 class Counter extends React.Component {
 
-  play = () => {
-    this.player.currentTime = 0;
-    this.player.volume = .2;
-    this.player.play();
+  playSound = () => {
+    const audio = new Audio("https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav");
+    audio.volume = .2;
+    audio.play();
   }
-  //should component update to prevent playing when using updater component?
 
-  componentDidUpdate(){
-    console.log('component updated!');
-    this.play();
+  componentDidUpdate(prevProps){
+    //console.log(prevProps.count, this.props.count);
+    if(prevProps.count !== this.props.count){
+      this.playSound();
+    }
   }
 
   render(){
@@ -22,11 +22,9 @@ class Counter extends React.Component {
               <div>
                 <button onClick={onDecrement}>-</button>
                 <span>{count}</span>
-                <audio ref={ref => this.player = ref} src="https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav"></audio>
                 <button onClick={onIncrement}>+</button>
                 <br />
                 <p>Number of times increment/decrement button has been clicked: {numClicks}</p>
-                
               </div>
             </div>
           );
