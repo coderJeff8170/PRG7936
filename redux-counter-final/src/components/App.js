@@ -7,7 +7,7 @@ import Updater from './Updater';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container text-center">
         <h3>Counter</h3>
         <Counter {...this.props} />
         <Updater {...this.props} />

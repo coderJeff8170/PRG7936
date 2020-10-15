@@ -3,8 +3,8 @@ import React from 'react';
 class Counter extends React.Component {
 
   playSound = () => {
-    const audio = new Audio("https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Woodblock L.wav");
-    audio.volume = .2;
+    const audio = new Audio("https://paintedbyjeff.com/FCC/MC-303samples/MC-303 Mega Blip 1.wav");
+    audio.volume = .1;
     audio.play();
   }
 
@@ -18,10 +18,13 @@ class Counter extends React.Component {
   render(){
     const { count, numClicks, onDecrement, onIncrement } = this.props;
     return (
-            <div>
+            <div >
               <div>
                 <button onClick={onDecrement}>-</button>
-                <span>{count}</span>
+                <div className="d-flex justify-content-center">
+            <h1 className="readout">{count}</h1>
+            
+          </div>
                 <button onClick={onIncrement}>+</button>
                 <br />
                 <p>Number of times increment/decrement button has been clicked: {numClicks}</p>
