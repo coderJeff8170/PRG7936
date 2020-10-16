@@ -17,12 +17,19 @@ class Counter extends React.Component {
 
   render(){
     const { count, numClicks, onDecrement, onIncrement } = this.props;
+    //limit counter to 999/-999 may not use this.
+    // const value = count <= 999 && count >= (-999) ? count
+    //   : count < (-999) ? (-999)
+    //     : 999;
+
+    const digits = count.toString().split('').map((el, i) => (<div key={i} className="digit" >{el}</div>));
+
     return (
             <div >
               <div>
                 <button onClick={onDecrement}>-</button>
                 <div className="d-flex justify-content-center">
-            <h1 className="readout">{count}</h1>
+            <h1 className="readout">{digits}</h1>
             
           </div>
                 <button onClick={onIncrement}>+</button>

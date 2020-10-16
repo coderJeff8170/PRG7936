@@ -12,11 +12,25 @@
     font-style: normal;
   }
 
+button, h3 {
+  font-family: 'Orbitron', sans-serif;
+}
+
 .readout {
-    
-    font-family: "ReadoutRegularSwfte", monospace;
-    font-size: 4em;
-    color: red;
+    width: 100%;
     background: black;
     border: 2px solid red;
+    overflow: hidden;
+}
+
+.digit {
+  font-family: "ReadoutRegularSwfte", monospace;
+  display: inline-block;
+  position: relative;
+  width: 75px;
+  margin: 7px 4px;
+  font-size: 4em;
+  color: rgb(240, 170, 130);
+  text-shadow: 6px 6px 10px red, -6px -6px 10px red;
+  
 }
