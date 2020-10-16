@@ -8,14 +8,14 @@ class Counter extends React.Component {
     audio.play();
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     //console.log(prevProps.count, this.props.count);
-    if(prevProps.count !== this.props.count){
+    if (prevProps.count !== this.props.count) {
       this.playSound();
     }
   }
 
-  render(){
+  render() {
     const { count, numClicks, onDecrement, onIncrement } = this.props;
     //limit counter to 999/-999 may not use this.
     // const value = count <= 999 && count >= (-999) ? count
@@ -25,19 +25,17 @@ class Counter extends React.Component {
     const digits = count.toString().split('').map((el, i) => (<div key={i} className="digit" >{el}</div>));
 
     return (
-            <div >
-              <div>
-                <button onClick={onDecrement}>-</button>
-                <div className="d-flex justify-content-center">
+      <div >
+        <div id="controlPanel">
+          <button className="baseButton crementButton" onClick={onDecrement}>-</button>
+          <div className="d-flex justify-content-center">
             <h1 className="readout">{digits}</h1>
-            
           </div>
-                <button onClick={onIncrement}>+</button>
-                <br />
-                <p>Number of times increment/decrement button has been clicked: {numClicks}</p>
-              </div>
-            </div>
-          );
+          <button className="baseButton crementButton" onClick={onIncrement}>+</button>
+        </div>
+        <h4># times +/- buttons clicked: {numClicks}</h4>
+      </div>
+    );
   }
 }
 

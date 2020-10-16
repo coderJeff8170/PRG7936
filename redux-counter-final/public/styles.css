@@ -12,15 +12,38 @@
     font-style: normal;
   }
 
-button, h3 {
+#root {
   font-family: 'Orbitron', sans-serif;
+  background: #151515;
+    color: white;
+    height: 100vh;
+}
+
+#controlPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* border: 2px solid red; */
+}
+
+.baseButton{
+  border-radius: 20px;
+  background: #333;
+  color: white;
+}
+.crementButton{
+  font-size: 4em;
+  font-weight: 700;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .readout {
-    width: 100%;
+    width: 600px;
     background: black;
     border: 2px solid red;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .digit {
@@ -33,4 +56,24 @@ button, h3 {
   color: rgb(240, 170, 130);
   text-shadow: 6px 6px 10px red, -6px -6px 10px red;
   
+}
+
+.updater {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputField, .inputBtn {
+  margin: 10px 0;
+  font-size: 2em;
+}
+
+.inputField {
+  width: 200px;
+  background: black;
+  font-family: "ReadoutRegularSwfte", monospace;
+  color: rgb(240, 170, 130);
+  text-shadow: 6px 6px 10px red, -6px -6px 10px red;
+  font-size: 4em;
 }
