@@ -21,9 +21,14 @@
 
 #controlPanel {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  /* border: 2px solid red; */
+  align-items: center;
+  margin: 20px 0px;
+}
+
+#title {
+  padding: 20px 0px;
 }
 
 .baseButton{
@@ -31,15 +36,24 @@
   background: #333;
   color: white;
 }
-.crementButton{
-  font-size: 4em;
+.crementButton {
+  font-size: 2em;
   font-weight: 700;
+  width: 50%;
   border-radius: 10px;
-  margin: 5px;
+  margin: 15px;
+}
+
+#crementButtons {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
 }
 
 .readout {
-    width: 600px;
+    display: flex;
+    justify-content: center;
+    width: 95vw;
     background: black;
     border: 2px solid red;
     overflow: hidden;
@@ -70,10 +84,46 @@
 }
 
 .inputField {
+  text-align: center;
   width: 200px;
   background: black;
   font-family: "ReadoutRegularSwfte", monospace;
   color: rgb(240, 170, 130);
-  text-shadow: 6px 6px 10px red, -6px -6px 10px red;
+  text-shadow: 3px 3px 5px red, -3px -3px 5px red;
   font-size: 4em;
+}
+
+.inputBtn {
+  padding: 5px 10px;
+}
+
+.greenGlow {
+  padding: 5px;
+  font-size: 1.5em;
+  color: rgb(170, 240, 130);
+  text-shadow: 3px 3px 5px green, -3px -3px 5px green;
+  background: black;
+  width: 20px;
+}
+
+/* below 600px, put crement buttons under readout */
+@media only screen and (min-width: 600px) {
+
+  .readout {
+    width: 600px;
+  }
+
+  #crementButtons {
+    flex-direction: column;
+    width: 50px;
+  }
+  .crementButton {
+    font-size: 3em;
+    width: 100%;
+    height: 100px;
+    margin: 5px;
+  }
+  #controlPanel {
+    flex-direction: row;
+  }
 }

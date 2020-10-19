@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container text-center">
-        <h1>The Final Countdown/Up!</h1>
+        <h1 id="title">The Final Countdown/Up!</h1>
         <Counter {...this.props} />
         <Updater {...this.props} />
       </div>
